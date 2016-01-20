@@ -18,7 +18,10 @@ returns `FOO`, but
   curl http://localhost:8080/svc/FOO
 ```
 
-yields an error.
+yields an error, because while the `@RequestMapping` annotation of the interface
+*method* is found, Spring Web MVC is unable to find the `@PathVariable`
+annotation from the method parameter (or any other parameter annotation
+defined at a higher level in the inheritance hierarchy).
 
 In a real-world case, the interface would be shipped in a separate artifact;
 the motivation, of course, being a convenient mechanism to share the
